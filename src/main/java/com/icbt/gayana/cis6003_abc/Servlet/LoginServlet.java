@@ -2,6 +2,7 @@ package com.icbt.gayana.cis6003_abc.Servlet;
 
 import com.icbt.gayana.cis6003_abc.DAO.UserDAO;
 import com.icbt.gayana.cis6003_abc.Model.User;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -44,7 +45,7 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("staffDashboard.jsp");
                     break;
                 case "client":
-                    response.sendRedirect("customerDashboard.jsp");
+                    response.sendRedirect("/client");
                     break;
                 default:
                     // Default to login page if role is unknown
@@ -56,5 +57,12 @@ public class LoginServlet extends HttpServlet {
             // Invalid login, redirect to login page with error
             response.sendRedirect("dashboard.jsp?error=InvalidCredentials");
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
+        dispatcher.forward(req, resp);
+
     }
 }
