@@ -50,17 +50,17 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        // Retrieve user by ID
-//        int userId = Integer.parseInt(request.getParameter("userId"));
-//
-//        User user = userDAO.getUserById(userId);
-//
-//        if (user != null) {
-//            request.setAttribute("user", user);
-//            request.getRequestDispatcher("userDetails.jsp").forward(request, response);
-//        } else {
-//            response.sendRedirect("error.jsp");
-//        }
+        // Retrieve user by ID
+        int userId = Integer.parseInt(request.getParameter("userId"));
+
+        User user = userDAO.getUserById(userId);
+
+        if (user != null) {
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("userDetails.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("error.jsp");
+        }
     }
 }
 

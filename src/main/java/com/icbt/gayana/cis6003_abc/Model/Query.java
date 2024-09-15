@@ -3,29 +3,29 @@ package com.icbt.gayana.cis6003_abc.Model;
 import java.time.LocalDateTime;
 
 public class Query {
-    private int queryId;
-    private User user;
+    private int query_id;
+    private int user_id;
     private String subject;
     private String message;
     private String status; // 'Pending', 'Resolved'
     private String response;
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 
     // Getters and Setters for each field
     public int getQueryId() {
-        return queryId;
+        return query_id;
     }
 
     public void setQueryId(int queryId) {
-        this.queryId = queryId;
+        this.query_id = queryId;
     }
 
-    public User getUser() {
-        return user;
+    public int getUserId() {
+        return user_id;
     }
 
     public void setUser(User user) {
-        this.user = user;
+        this.user_id = user.getUser_id();
     }
 
     public String getSubject() {
@@ -61,10 +61,10 @@ public class Query {
     }
 
     public LocalDateTime getCreatedAt() {
-        return createdAt;
+        return created_at;
     }
 
     public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+        this.created_at = createdAt;
     }
 }

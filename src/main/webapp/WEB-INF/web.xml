@@ -33,4 +33,13 @@
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>QueryServlet</servlet-name>
+        <servlet-class>com.icbt.gayana.cis6003_abc.Servlet.QueryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryServlet</servlet-name>
+        <url-pattern>/query</url-pattern>
+    </servlet-mapping>
 </web-app>

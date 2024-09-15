@@ -29,7 +29,15 @@
 </head>
 
 <body class="index-page">
-
+<%
+    String query_status = request.getParameter("query_status");
+%>
+<script>
+    // Check if the parameters are not null or empty before showing the alert
+    <% if (query_status != null && !query_status.isEmpty()) { %>
+    alert('Thank you for your feedback,  <%= query_status %>');
+    <% } %>
+</script>
 <header id="header" class="header fixed-top">
     <div class="branding d-flex align-items-cente">
 
@@ -532,7 +540,7 @@
                     <div class="col-lg-4 reservation-img" style="background-image: url(Assets/img/reservation_form_img.png);"></div>
 
                     <div class="col-lg-8 align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200" >
-                        <form action="forms/reservation.php" method="post" role="form" class="php-email-form">
+                        <form action="forms/reservation.php" method="post" role="form" class="query-form">
                             <div >
                                 <div class="">
                                     <input type="text" name="name" class="form-control" id="name_client" placeholder="Your Name" required="">
@@ -697,10 +705,10 @@
                 </div>
 
                 <div class="col-lg-8">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="query" method="post" class="query-form">
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                                <input type="text" name="name" class="form-control" id="full_name" placeholder="Your Name" required="">
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
@@ -712,12 +720,9 @@
                         <div class="form-group mt-3">
                             <textarea class="form-control" name="message" placeholder="Message" required=""></textarea>
                         </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        <div class="text-center">
+                            <button type="submit">Send Message</button>
                         </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
                     </form>
                 </div><!-- End Contact Form -->
 
@@ -742,7 +747,6 @@
                     <p>Negombo</p>
                     <p></p>
                 </div>
-
             </div>
 
             <div class="col-lg-3 col-md-6 d-flex">
@@ -794,7 +798,7 @@
 
 <!-- Vendor JS Files -->
 <script src="Assets/Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="Assets/Vendor/php-email-form/validate.js"></script>
+<script src="Assets/Vendor/query-form/validate.js"></script>
 <script src="Assets/Vendor/aos/aos.js"></script>
 <script src="Assets/Vendor/glightbox/js/glightbox.min.js"></script>
 <script src="Assets/Vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>

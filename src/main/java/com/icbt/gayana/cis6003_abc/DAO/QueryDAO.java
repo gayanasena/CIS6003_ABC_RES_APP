@@ -18,11 +18,12 @@ public class QueryDAO {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
-            preparedStatement.setInt(1, query.getUser().getUser_id());
+            preparedStatement.setInt(1, query.getUserId());
             preparedStatement.setString(2, query.getSubject());
             preparedStatement.setString(3, query.getMessage());
             preparedStatement.setString(4, query.getStatus());
             preparedStatement.setTimestamp(5, Timestamp.valueOf(query.getCreatedAt()));
+            preparedStatement.setString(6, "");
 
             int rowsInserted = preparedStatement.executeUpdate();
             return rowsInserted > 0;
