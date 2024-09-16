@@ -10,8 +10,10 @@ public class Reservation {
     private int guestCount;
     private String status;
     private LocalDateTime created_at;
+    private String sub_type;
+    private String notes;
 
-//    public Reservation(int reservationId, User user, LocalDateTime reservationDate, String reservationType) {
+//    public Reservation(int reservationId, int userId, LocalDateTime reservationDate, String reservationType, String subType, String notes) {
 //        this.reservationId = reservationId;
 //        this.user_id = user.getUser_id();
 //        this.reservationType = reservationType;
@@ -19,6 +21,8 @@ public class Reservation {
 //        this.guestCount = 1;
 //        this.status = "Available";
 //        this.created_at = LocalDateTime.now();
+//        this.sub_type = subType;
+//        this.notes = notes;
 //    }
 
     // Getters and Setters for each field
@@ -72,5 +76,21 @@ public class Reservation {
 
     public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
+    }
+
+    public String getSub_type() {
+        return sub_type;
+    }
+
+    public void setSub_type(String sub_type) {
+        this.sub_type = sub_type;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

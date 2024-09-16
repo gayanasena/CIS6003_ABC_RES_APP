@@ -1,30 +1,58 @@
 package com.icbt.gayana.cis6003_abc.Servlet;
 
 import com.icbt.gayana.cis6003_abc.DAO.ReservationDAO;
+import com.icbt.gayana.cis6003_abc.DAO.UserDAO;
+import com.icbt.gayana.cis6003_abc.Model.Query;
 import com.icbt.gayana.cis6003_abc.Model.Reservation;
+import com.icbt.gayana.cis6003_abc.Model.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
 
-@WebServlet("/reservation-Servlet")
+@WebServlet("/reservation")
 public class ReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Create or update reservation
-        int reservationId = Integer.parseInt(request.getParameter("reservationId")); // Use 0 for new reservation
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        LocalDateTime reservationDate = LocalDateTime.parse(request.getParameter("reservationDate")); // Assumes proper format
-        String reservationType = request.getParameter("reservationType"); // e.g., "Dine-In", "Delivery"
+        int reservationId = 0;
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        LocalDateTime reservationDate = LocalDateTime.parse(request.getParameter("reservationDate"));
+        String reservationType = request.getParameter("reservationType");
+        String reservationSubType = request.getParameter("reservationSubType");
+        String clientMessage = request.getParameter("message");
+        String guestCount = request.getParameter("guestCount");
 
+//        find user
+        UserDAO userDAO = new UserDAO();
         ReservationDAO reservationDAO = new ReservationDAO();
-
         Reservation reservation = new Reservation();
-        reservation.setReservationId(reservationId);
-        reservation.setUserId(userId);
-        reservation.setReservationType(reservationType);
-        reservation.setDateTime(reservationDate);
+
+        User emailOwnerUser = userDAO.findUserByEmail(email);
+
+        if(emailOwnerUser != null && emailOwnerUser.getEmail().equals(email)) {
+            reservation.setReservationId(reservationId);
+            reservation.setUserId(emailOwnerUser.getUser_id());
+            reservation.setReservationType(reservationType);
+            reservation.setDateTime(reservationDate);
+            reservation.setSub_type(reservationSubType);
+            reservation.setGuestCount(Integer.parseInt(guestCount));
+            reservation.setStatus("Booked");
+            reservation.setNotes("Name - "+name+" Email - "+email+" Phone - "+phone+" Guest Count - "+guestCount+" Message - "+clientMessage);
+        }else{
+            reservation.setReservationId(reservationId);
+            reservation.setUserId(0);
+            reservation.setReservationType(reservationType);
+            reservation.setDateTime(reservationDate);
+            reservation.setSub_type(reservationSubType);
+            reservation.setGuestCount(Integer.parseInt(guestCount));
+            reservation.setStatus("Booked");
+            reservation.setNotes("Name - "+name+" Email - "+email+" Phone - "+phone+" Guest Count - "+guestCount+" Message - "+clientMessage);
+        }
 
         boolean isSaved;
 
@@ -34,14 +62,17 @@ public class ReservationServlet extends HttpServlet {
             isSaved = reservationDAO.addReservation(reservation); // Add new reservation
         }
 
+        String message = "";
+
         if (isSaved) {
-            response.sendRedirect("success.jsp");
+            message = "Your reservation booked successfully!";
+            String url = "dashboard.jsp?message=" + URLEncoder.encode(message, "UTF-8");
+            response.sendRedirect(url);
         } else {
-            response.sendRedirect("error.jsp");
+            message = "Your reservation booking was not successful, please try again!";
+            String url = "dashboard.jsp?message=" + URLEncoder.encode(message, "UTF-8");
+            response.sendRedirect(url);
         }
-        // Call DAO to persist reservation
-        reservationDAO.addReservation(reservation);
-        response.sendRedirect("reservationSuccess.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

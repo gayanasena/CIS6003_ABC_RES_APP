@@ -42,4 +42,13 @@
         <servlet-name>QueryServlet</servlet-name>
         <url-pattern>/query</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReservationServlet</servlet-name>
+        <servlet-class>com.icbt.gayana.cis6003_abc.Servlet.ReservationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReservationServlet</servlet-name>
+        <url-pattern>/reservation</url-pattern>
+    </servlet-mapping>
 </web-app>

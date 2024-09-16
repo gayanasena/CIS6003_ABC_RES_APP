@@ -83,7 +83,7 @@
                         The restaurant is centrally located on Strømmen, close to Strømmen Storsenter</p>
                     <div>
                         <a href="#menu" class="btn-get-started">Our Menu</a>
-                        <a href="#reservation" class="btn-get-started">Book a table</a>
+                        <a href="#reservation" class="btn-get-started">Making a Reservation</a>
                     </div>
                 </div>
             </div><!-- End Carousel Item -->
@@ -96,7 +96,7 @@
                         Here we expect that there is not only a restaurant, but also a connection between Eastern and Western culture, the connection between tradition and modernity.</p>
                     <div>
                         <a href="#menu" class="btn-get-started">Our Menu</a>
-                        <a href="#reservation" class="btn-get-started">Book a table</a>
+                        <a href="#reservation" class="btn-get-started">Making a Reservation</a>
                     </div>
                 </div>
             </div><!-- End Carousel Item -->
@@ -108,7 +108,7 @@
                     <p>Our specialty lies in crafting a culinary experience that is both unique and memorable. We take pride in fusing time-honored traditions with contemporary techniques, using the freshest ingredients to create dishes that tell a story. Each plate is a reflection of our commitment to excellence, innovation, and a deep respect for the flavors that define our identity.</p>
                     <div>
                         <a href="#menu" class="btn-get-started">Our Menu</a>
-                        <a href="#reservation" class="btn-get-started">Book a table</a>
+                        <a href="#reservation" class="btn-get-started">Making a Reservation</a>
                     </div>
                 </div>
             </div><!-- End Carousel Item -->
@@ -540,7 +540,7 @@
                     <div class="col-lg-4 reservation-img" style="background-image: url(Assets/img/reservation_form_img.png);"></div>
 
                     <div class="col-lg-8 align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200" >
-                        <form action="forms/reservation.php" method="post" role="form" class="query-form">
+                        <form action="reservation" method="post" role="form" class="php-email-form">
                             <div >
                                 <div class="">
                                     <input type="text" name="name" class="form-control" id="name_client" placeholder="Your Name" required="">
@@ -552,13 +552,51 @@
                                     <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
                                 </div>
                             </div>
-
+                            <div class="form-group mt-3">
+                                <select class="form-control" id="reservation-type" name="reservationType" required>
+                                    <option value="" disabled selected>Select Reservation Type</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                    <option value="room">Rooms</option>
+                                    <option value="event">Event</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <select class="form-control" id="sub-reservation-type" name="reservationSubType" required>
+                                    <option value="" disabled selected>Select an Option</option>
+                                    <option value="superiorKing">Superior King</option>
+                                    <option value="superiorTwin">Superior Twin</option>
+                                    <option value="superiorRoom">Superior Room</option>
+                                    <option value="executiveRoom">Executive Room</option>
+                                    <option value="presidentialRoom">Presidential Room</option>
+                                    <option value="chickenFriedRice">Chicken Fried Rice - Rs.1,500.00</option>
+                                    <option value="chickenBiriyani">Chicken Biriyani - Rs.1,200.00</option>
+                                    <option value="chickenLumprias">Chicken Lumprias - Rs.1,550.00</option>
+                                    <option value="fishFriedRice">Fish Fried Rice - Rs.1,250.00</option>
+                                    <option value="seafoodLumprias">Seafood Lumprias - Rs.1,625.00</option>
+                                    <option value="vegetableBiriyani">Vegetable Biriyani - Rs.1,275.00</option>
+                                    <option value="vegetableFriedRice">Vegetable Fried Rice - Rs.1,150.00</option>
+                                    <option value="muttonSawan">Mutton Sawan - Rs.13,200.00 – Rs.20,700.00</option>
+                                    <option value="prawnSawan">Prawn Sawan - Rs.12,200.00 – Rs.15,700.00</option>
+                                    <option value="chickenSawan">Chicken Sawan - Rs.9,800.00 – Rs.16,700.00</option>
+                                    <option value="vegetableLumprias">Vegetable Lumprias - Rs.1,300.00</option>
+                                    <option value="dineWithRomance">Dine with Romance - Rs.8,500.00</option>
+                                    <option value="theGourmetNight">The Gourmet Night - Rs.12,500.00</option>
+                                    <option value="eveningTeaParty">Evening Tea Party - Rs.6,500.00</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="number" class="form-control" name="guestCount" id="guest_count" placeholder="Number of Guests" required="">
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="datetime-local" class="form-control" name="reservationDate" id="date_time" required="">
+                            </div>
                             <div class="form-group mt-3">
                                 <textarea class="form-control" name="message" rows="6" placeholder="Message"></textarea>
                             </div>
 
                             <div class="text-center ">
-                                <button type="submit">Send thoughts</button>
+                                <button type="submit">Send Reservation</button>
                             </div>
                         </form>
                     </div><!-- End Reservation Form -->
@@ -703,9 +741,8 @@
                     </div>
 
                 </div>
-
                 <div class="col-lg-8">
-                    <form action="query" method="post" class="query-form">
+                    <form action="query" method="post" class="php-email-form">
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <input type="text" name="name" class="form-control" id="full_name" placeholder="Your Name" required="">
@@ -798,7 +835,6 @@
 
 <!-- Vendor JS Files -->
 <script src="Assets/Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="Assets/Vendor/query-form/validate.js"></script>
 <script src="Assets/Vendor/aos/aos.js"></script>
 <script src="Assets/Vendor/glightbox/js/glightbox.min.js"></script>
 <script src="Assets/Vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>

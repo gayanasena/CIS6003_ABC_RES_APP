@@ -156,7 +156,7 @@ h6 {
 
 /* PHP Email Form Messages
 ------------------------------*/
-.query-form .error-message {
+.php-email-form .error-message {
     display: none;
     background: #df1529;
     color: #ffffff;
@@ -166,7 +166,7 @@ h6 {
     font-weight: 600;
 }
 
-.query-form .sent-message {
+.php-email-form .sent-message {
     display: none;
     color: #ffffff;
     background: #059652;
@@ -176,7 +176,7 @@ h6 {
     font-weight: 600;
 }
 
-.query-form .loading {
+.php-email-form .loading {
     display: none;
     background: var(--surface-color);
     text-align: center;
@@ -184,7 +184,7 @@ h6 {
     margin-bottom: 24px;
 }
 
-.query-form .loading:before {
+.php-email-form .loading:before {
     content: "";
     display: inline-block;
     border-radius: 50%;
@@ -193,10 +193,10 @@ h6 {
     margin: 0 10px -6px 0;
     border: 3px solid var(--accent-color);
     border-top-color: var(--surface-color);
-    animation: query-form-loading 1s linear infinite;
+    animation: php-email-form-loading 1s linear infinite;
 }
 
-@keyframes query-form-loading {
+@keyframes php-email-form-loading {
     0% {
         transform: rotate(0deg);
     }
@@ -1294,22 +1294,22 @@ section,
     background: color-mix(in srgb, var(--default-color), transparent 97%);
 }
 
-.reservation .query-form {
+.reservation .php-email-form {
     padding: 30px;
 }
 
 @media (max-width: 575px) {
-    .reservation .query-form {
+    .reservation .php-email-form {
         padding: 20px;
     }
 }
 
-.reservation .query-form input[type=text],
-.reservation .query-form input[type=email],
-.reservation .query-form input[type=number],
-.reservation .query-form input[type=date],
-.reservation .query-form input[type=time],
-.reservation .query-form textarea {
+.reservation .php-email-form input[type=text],
+.reservation .php-email-form input[type=email],
+.reservation .php-email-form input[type=number],
+.reservation .php-email-form input[type=date],
+.reservation .php-email-form input[type=time],
+.reservation .php-email-form textarea {
     font-size: 14px;
     padding: 10px 15px;
     box-shadow: none;
@@ -1319,25 +1319,25 @@ section,
     border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.reservation .query-form input[type=text]:focus,
-.reservation .query-form input[type=email]:focus,
-.reservation .query-form input[type=number]:focus,
-.reservation .query-form input[type=date]:focus,
-.reservation .query-form input[type=time]:focus,
-.reservation .query-form textarea:focus {
+.reservation .php-email-form input[type=text]:focus,
+.reservation .php-email-form input[type=email]:focus,
+.reservation .php-email-form input[type=number]:focus,
+.reservation .php-email-form input[type=date]:focus,
+.reservation .php-email-form input[type=time]:focus,
+.reservation .php-email-form textarea:focus {
     border-color: var(--accent-color);
 }
 
-.reservation .query-form input[type=text]::placeholder,
-.reservation .query-form input[type=email]::placeholder,
-.reservation .query-form input[type=number]::placeholder,
-.reservation .query-form input[type=date]::placeholder,
-.reservation .query-form input[type=time]::placeholder,
-.reservation .query-form textarea::placeholder {
+.reservation .php-email-form input[type=text]::placeholder,
+.reservation .php-email-form input[type=email]::placeholder,
+.reservation .php-email-form input[type=number]::placeholder,
+.reservation .php-email-form input[type=date]::placeholder,
+.reservation .php-email-form input[type=time]::placeholder,
+.reservation .php-email-form textarea::placeholder {
     color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.reservation .query-form button[type=submit] {
+.reservation .php-email-form button[type=submit] {
     color: var(--contrast-color);
     background: var(--accent-color);
     border: 0;
@@ -1346,7 +1346,7 @@ section,
     border-radius: 40px;
 }
 
-.reservation .query-form button[type=submit]:hover {
+.reservation .php-email-form button[type=submit]:hover {
     background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
@@ -1608,17 +1608,17 @@ section,
     color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
 
-.contact .query-form {
+.contact .php-email-form {
     width: 100%;
 }
 
-.contact .query-form .form-group {
+.contact .php-email-form .form-group {
     padding-bottom: 8px;
 }
 
-.contact .query-form input[type=text],
-.contact .query-form input[type=email],
-.contact .query-form textarea {
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
     color: var(--default-color);
     background-color: var(--surface-color);
     border-radius: 0px;
@@ -1627,30 +1627,30 @@ section,
     border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.contact .query-form input[type=text]:focus,
-.contact .query-form input[type=email]:focus,
-.contact .query-form textarea:focus {
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
     border-color: var(--accent-color);
 }
 
-.contact .query-form input[type=text]::placeholder,
-.contact .query-form input[type=email]::placeholder,
-.contact .query-form textarea::placeholder {
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
     color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.contact .query-form input[type=text],
-.contact .query-form input[type=email] {
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email] {
     height: 48px;
     padding: 10px 15px;
 }
 
-.contact .query-form textarea {
+.contact .php-email-form textarea {
     padding: 10px 12px;
     height: 290px;
 }
 
-.contact .query-form button[type=submit] {
+.contact .php-email-form button[type=submit] {
     background: var(--accent-color);
     color: var(--contrast-color);
     border: 0;
@@ -1659,6 +1659,6 @@ section,
     border-radius: 4px;
 }
 
-.contact .query-form button[type=submit]:hover {
+.contact .php-email-form button[type=submit]:hover {
     background: color-mix(in srgb, var(--accent-color) 90%, black 15%);
 }

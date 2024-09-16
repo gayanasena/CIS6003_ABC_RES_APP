@@ -11,7 +11,7 @@ public class ReservationDAO {
 
     // Add a new reservation to the database
     public boolean addReservation(Reservation reservation) {
-        String sql = "INSERT INTO reservations (user_id, reservation_type, date_time, guest_count, status) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO reservations (user_id, reservation_type, date_time, guest_count, status, sub_type) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -21,6 +21,7 @@ public class ReservationDAO {
             preparedStatement.setTimestamp(3, Timestamp.valueOf(reservation.getDateTime()));
             preparedStatement.setInt(4, reservation.getGuestCount());
             preparedStatement.setString(5, reservation.getStatus());
+            preparedStatement.setString(6, reservation.getSub_type());
 
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
@@ -44,13 +45,13 @@ public class ReservationDAO {
             if (resultSet.next()) {
                 Reservation reservation = new Reservation();
                 reservation.setReservationId(resultSet.getInt("reservation_id"));
-
                 reservation.setUserId(resultSet.getInt("user_id"));
                 reservation.setReservationType(resultSet.getString("reservation_type"));
                 reservation.setDateTime(resultSet.getTimestamp("date_time").toLocalDateTime());
                 reservation.setGuestCount(resultSet.getInt("guest_count"));
                 reservation.setStatus(resultSet.getString("status"));
                 reservation.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                reservation.setSub_type(resultSet.getString("sub_type"));
 
                 return reservation;
             }
@@ -82,6 +83,7 @@ public class ReservationDAO {
                 reservation.setGuestCount(resultSet.getInt("guest_count"));
                 reservation.setStatus(resultSet.getString("status"));
                 reservation.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                reservation.setSub_type(resultSet.getString("sub_type"));
 
                 reservations.add(reservation);
             }
@@ -94,7 +96,7 @@ public class ReservationDAO {
 
     // Update an existing reservation
     public boolean updateReservation(Reservation reservation) {
-        String sql = "UPDATE reservations SET reservation_type = ?, date_time = ?, guest_count = ?, status = ? WHERE reservation_id = ?";
+        String sql = "UPDATE reservations SET reservation_type = ?, date_time = ?, guest_count = ?, status = ?, sub_type = ? WHERE reservation_id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -103,7 +105,8 @@ public class ReservationDAO {
             preparedStatement.setTimestamp(2, Timestamp.valueOf(reservation.getDateTime()));
             preparedStatement.setInt(3, reservation.getGuestCount());
             preparedStatement.setString(4, reservation.getStatus());
-            preparedStatement.setInt(5, reservation.getReservationId());
+            preparedStatement.setString(5, reservation.getSub_type());
+            preparedStatement.setInt(6, reservation.getReservationId());
 
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
@@ -150,6 +153,7 @@ public class ReservationDAO {
                 reservation.setGuestCount(resultSet.getInt("guest_count"));
                 reservation.setStatus(resultSet.getString("status"));
                 reservation.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                reservation.setSub_type(resultSet.getString("sub_type"));
 
                 reservations.add(reservation);
             }
