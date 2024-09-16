@@ -38,6 +38,15 @@
     alert('Thank you for your feedback,  <%= query_status %>');
     <% } %>
 </script>
+<%
+    String message = request.getParameter("message");
+%>
+<script>
+    // Check if the parameters are not null or empty before showing the alert
+    <% if (message != null && !message.isEmpty()) { %>
+    alert('Thank you,  <%= message %>');
+    <% } %>
+</script>
 <header id="header" class="header fixed-top">
     <div class="branding d-flex align-items-cente">
 
