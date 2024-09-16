@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    background-image: url('../Assets/login_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Locks the background */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-side {
+    flex: 1;
+    background-color: rgba(37, 37, 37, 0.75);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-img{
+    align-self: center;
+    width: max(35%);
+    height: auto;
+}
+
+.left-side p {
+    font-size: 16px;
+    color: white;
+    margin: 10px 0 30px;
+}
+
+form {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: max(50%);
+}
+
+form input {
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
+
+button {
+    align-self: center;
+    width: max(60%);
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: #ffb03b;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: rgba(255, 176, 59, 0.7);
+}
+
+.create-account-btn {
+    display: block;
+    text-align: center;
+    background-color: #ffb03b;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 15px auto; /* Centers the button */
+    width: max(50%);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-account-btn:hover {
+    background-color: rgba(255, 176, 59, 0.7);
+}
+
+form label {
+    color: white;
+}
+
+form hr {
+    align-items: center;
+    border-bottom: 1px solid #dadde1;
+    display: flex;
+    margin: 5px 16px 15px;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.options a {
+    color: white;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: auto;
+    font-size: 14px;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p{
+    font-size: 14px;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    padding: 50px;
+}
+

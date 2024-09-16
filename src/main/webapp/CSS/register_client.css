@@ -1,0 +1,67 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../Assets/login_background.jpg')
+}
+
+.registration-form {
+    background-color: #ffffff55;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+.registration-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #666;
+}
+
+.registration-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+}
+
+.registration-form input:focus {
+    border-color: #ffb03b;
+    outline: none;
+    box-shadow: 0 0 5px #ffb13b35;
+}
+
+.register-button button {
+    align-self: center;
+    width: max(100%);
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #ffb03b;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.registration-form button:hover {
+    background-color: rgba(255, 176, 59, 0.7);
+}
